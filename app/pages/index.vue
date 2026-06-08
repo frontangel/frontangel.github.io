@@ -42,9 +42,9 @@ const process = computed(() => [
 ])
 
 const products = computed(() => [
-  { name: 'Leadbox', live: true, img: '/leadbox-screen.png', text: t('products.leadbox') },
-  { name: 'Tcounter', live: true, img: '/tcounter-screen.png', text: t('products.tcounter') },
-  { name: 'Revita', live: false, img: '/revita-full.png', text: t('products.revita') },
+  { name: 'Leadbox', live: true, img: '/leadbox-screen.png', href: 'https://leadbox.com.ua/', text: t('products.leadbox') },
+  { name: 'Tcounter', live: true, img: '/tcounter-screen.png', href: 'https://tcounter.pp.ua/', text: t('products.tcounter') },
+  { name: 'Revita', live: false, img: '/revita-full.png', href: 'https://revita.frontangel.dev/', text: t('products.revita') },
 ])
 
 const cases = computed(() => [
@@ -191,19 +191,19 @@ const localePath = useLocalePath()
     <p class="flex items-center gap-2 font-mono text-xs tracking-widest text-accent"><span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" />{{ $t('products.eyebrow') }}</p>
     <h2 class="mt-3 font-heading text-4xl">{{ $t('products.heading') }}</h2>
     <div class="mt-9 grid gap-5 md:grid-cols-3">
-      <div v-for="p in products" :key="p.name" class="overflow-hidden rounded-[26px] border border-line bg-surface">
+      <a v-for="p in products" :key="p.name" :href="p.href" target="_blank" rel="noopener" class="group block overflow-hidden rounded-[26px] border border-line bg-surface transition-colors hover:border-accent/50">
         <div class="h-52 overflow-hidden bg-surface-2">
-          <img :src="p.img" :alt="p.name" class="h-full w-full object-cover object-top" />
+          <img :src="p.img" :alt="p.name" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]" />
         </div>
         <div class="p-6">
           <div class="flex items-center justify-between">
-            <h3 class="font-heading text-2xl">{{ p.name }}</h3>
+            <h3 class="flex items-center gap-1.5 font-heading text-2xl">{{ p.name }}<Icon name="lucide:arrow-up-right" size="18" class="text-muted transition-colors group-hover:text-accent" /></h3>
             <span v-if="p.live" class="flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 font-mono text-[10px] font-semibold text-accent"><span class="h-1.5 w-1.5 rounded-full bg-accent" />{{ $t('products.live') }}</span>
             <span v-else class="flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1 font-mono text-[10px] text-muted"><span class="h-1.5 w-1.5 rounded-full bg-muted" />{{ $t('products.inDev') }}</span>
           </div>
           <p class="mt-2.5 text-sm leading-relaxed text-secondary">{{ p.text }}</p>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
