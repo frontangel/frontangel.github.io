@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  /* surfaces */
+  --color-base: #0b0b0d;
+  --color-surface: #151518;
+  --color-surface-2: #1f1f25;
+
+  /* text */
+  --color-fg: #fafaf7;
+  --color-secondary: #a1a1aa;
+  --color-muted: #6b6b73;
+
+  /* accent (brand yellow) */
+  --color-accent: #ffd21e;
+  --color-accent-ink: #0b0b0d;
+  --color-accent-soft: #ffd21e22;
+  --color-on-light: #0b0b0d;
+
+  /* lines */
+  --color-line: #2a2a31;
+  --color-line-accent: #ffd21e55;
+
+  /* fonts */
+  --font-heading: "Oswald", system-ui, sans-serif;
+  --font-body: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* radii */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-base);
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+}
+
+/* Oswald renders lighter than Anton — give headings a heavier weight. */
+.font-heading {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
