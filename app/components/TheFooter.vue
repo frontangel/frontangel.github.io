@@ -2,10 +2,9 @@
 const { locale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 const socials = [
-  { icon: 'lucide:github', href: 'https://github.com/frontangel' },
-  { icon: 'lucide:linkedin', href: 'https://www.linkedin.com/in/angelslava/' },
-  { icon: 'lucide:youtube', href: '#' },
-  { icon: 'lucide:send', href: '#' },
+  { icon: 'simple-icons:upwork', href: 'https://www.upwork.com/freelancers/~012559193e1e06db8e' },
+  { icon: 'lucide:linkedin', href: 'https://www.linkedin.com/in/frontangel' },
+  { icon: 'lucide:mail', href: 'mailto:va@frontangel.dev' },
 ]
 </script>
 
